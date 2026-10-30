@@ -1,6 +1,6 @@
 const http = require('http');
 const httpProxy = require('http-proxy');
-const { port, coreUrl, paymentsUrl, notificationsUrl } = require('./config');
+const { port, coreUrl, paymentsUrl, notificationsUrl, adminUrl } = require('./config');
 const { targetFor } = require('./routes');
 
 const proxy = httpProxy.createProxyServer({ xfwd: true });
@@ -32,6 +32,7 @@ const server = http.createServer((req, res) => {
       core: coreUrl,
       payments: paymentsUrl,
       notifications: notificationsUrl,
+      admin: adminUrl,
     });
     return;
   }

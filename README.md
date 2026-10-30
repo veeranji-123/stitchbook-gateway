@@ -4,6 +4,7 @@ Public entry point for StitchBook. The app talks to this service. It listens on 
 
 | Path | Forwards to |
 | --- | --- |
+| `/api/admin` | `stitchbook-admin` |
 | `/api/payments` | `stitchbook-payments` |
 | `/api/notifications`, `/api/push`, `/socket.io` | `stitchbook-notifications` |
 | other `/api/` paths | `stitchbook-core` |
@@ -20,4 +21,4 @@ npm install
 npm start
 ```
 
-`GET /` returns the gateway name and the three upstream addresses.
+`GET /` returns the gateway name and the upstream addresses.

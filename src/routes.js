@@ -1,9 +1,10 @@
-const { coreUrl, paymentsUrl, notificationsUrl } = require('./config');
+const { coreUrl, paymentsUrl, notificationsUrl, adminUrl } = require('./config');
 
 function targetFor(url) {
   const path = url.split('?')[0];
   if (path === '/internal' || path.startsWith('/internal/')) return null;
   if (path === '/api/payments' || path.startsWith('/api/payments/')) return paymentsUrl;
+  if (path === '/api/admin' || path.startsWith('/api/admin/')) return adminUrl;
   if (
     path === '/api/notifications' || path.startsWith('/api/notifications/')
     || path === '/api/push' || path.startsWith('/api/push/')
