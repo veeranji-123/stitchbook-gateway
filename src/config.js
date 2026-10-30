@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const REQUIRED_ENV = ['CORE_URL', 'PAYMENTS_URL', 'NOTIFICATIONS_URL', 'ADMIN_URL'];
+const REQUIRED_ENV = ['CORE_URL', 'PAYMENTS_URL', 'NOTIFICATIONS_URL', 'ADMIN_URL', 'CUSTOMER_URL', 'TAILOR_URL'];
 const missing = REQUIRED_ENV.filter((key) => !process.env[key]);
 if (missing.length > 0) {
   missing.forEach((key) => console.error(`[fatal] Missing required environment variable: ${key}`));
@@ -17,4 +17,6 @@ module.exports = {
   paymentsUrl: trim(process.env.PAYMENTS_URL),
   notificationsUrl: trim(process.env.NOTIFICATIONS_URL),
   adminUrl: trim(process.env.ADMIN_URL),
+  customerUrl: trim(process.env.CUSTOMER_URL),
+  tailorUrl: trim(process.env.TAILOR_URL),
 };
