@@ -16,6 +16,7 @@ function targetFor(url) {
   if (path === '/api/auth' || path.startsWith('/api/auth/')) return customerUrl;
   if (path === '/api/tailors' || path.startsWith('/api/tailors/')) return customerUrl;
   if (path === '/api/tailor' || path.startsWith('/api/tailor/')) return tailorUrl;
+  if (path === '/api/slots/block') return tailorUrl;
   if (path === '/api/bookings/tailor' || path.startsWith('/api/bookings/tailor/')) return tailorUrl;
   if (/^\/api\/bookings\/[^/]+\/status$/.test(path)) return tailorUrl;
   if (/^\/api\/bookings\/[^/]+\/payment-status$/.test(path)) return tailorUrl;
