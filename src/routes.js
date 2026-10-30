@@ -23,6 +23,8 @@ function targetFor(url, method) {
   if (/^\/api\/bookings\/[^/]+\/status$/.test(path)) return tailorUrl;
   if (/^\/api\/bookings\/[^/]+\/payment-status$/.test(path)) return tailorUrl;
   if (method === 'PUT' && /^\/api\/bookings\/[^/]+\/measurements$/.test(path)) return tailorUrl;
+  if (method === 'PUT' && /^\/api\/ratings\/[^/]+\/reply$/.test(path)) return tailorUrl;
+  if (path === '/api/ratings' || path.startsWith('/api/ratings/')) return customerUrl;
   if (path === '/api/user' || path.startsWith('/api/user/')) return customerUrl;
   if (path === '/api/measurements' || path.startsWith('/api/measurements/')) return customerUrl;
   if (path === '/api/bookings' || path.startsWith('/api/bookings/')) return customerUrl;
