@@ -1,6 +1,6 @@
 const { coreUrl, paymentsUrl, notificationsUrl, adminUrl, customerUrl, tailorUrl } = require('./config');
 
-function targetFor(url) {
+function targetFor(url, method) {
   const path = url.split('?')[0];
   if (path === '/internal' || path.startsWith('/internal/')) return null;
   if (path === '/api/payments' || path.startsWith('/api/payments/')) return paymentsUrl;
@@ -14,6 +14,8 @@ function targetFor(url) {
   }
   if (path === '/api/auth/register/tailor' || path === '/api/auth/login/tailor') return tailorUrl;
   if (path === '/api/auth' || path.startsWith('/api/auth/')) return customerUrl;
+  if (method === 'PUT' && /^\/api\/tailors\/[^/]+$/.test(path)) return tailorUrl;
+  if (path === '/api/analytics' || path.startsWith('/api/analytics/')) return tailorUrl;
   if (path === '/api/tailors' || path.startsWith('/api/tailors/')) return customerUrl;
   if (path === '/api/tailor' || path.startsWith('/api/tailor/')) return tailorUrl;
   if (path === '/api/slots/block') return tailorUrl;

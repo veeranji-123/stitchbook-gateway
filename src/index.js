@@ -39,7 +39,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  const target = targetFor(req.url || '/');
+  const target = targetFor(req.url || '/', req.method);
   if (!target) {
     sendJson(res, 404, { error: 'Not found' });
     return;
@@ -48,7 +48,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.on('upgrade', (req, socket, head) => {
-  const target = targetFor(req.url || '/');
+  const target = targetFor(req.url || '/', req.method);
   if (!target) {
     socket.destroy();
     return;
