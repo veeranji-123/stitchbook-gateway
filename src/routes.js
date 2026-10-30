@@ -14,6 +14,10 @@ function targetFor(url, method) {
   }
   if (path === '/api/auth/register/tailor' || path === '/api/auth/login/tailor') return tailorUrl;
   if (path === '/api/auth' || path.startsWith('/api/auth/')) return customerUrl;
+  if (method === 'POST' && /^\/api\/tailors\/[^/]+\/upload-(image|portfolio)$/.test(path)) return coreUrl;
+  if (method === 'POST' && /^\/api\/bookings\/[^/]+\/ironing-items\/[^/]+\/photos$/.test(path)) return coreUrl;
+  if (path === '/uploads' || path.startsWith('/uploads/')) return coreUrl;
+  if (path === '/api/messages' || path.startsWith('/api/messages/')) return customerUrl;
   if (method === 'PUT' && /^\/api\/tailors\/[^/]+$/.test(path)) return tailorUrl;
   if (path === '/api/analytics' || path.startsWith('/api/analytics/')) return tailorUrl;
   if (path === '/api/tailors' || path.startsWith('/api/tailors/')) return customerUrl;

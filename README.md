@@ -4,7 +4,8 @@ Public entry point for StitchBook. The app talks to this service. It listens on 
 
 | Path | Forwards to |
 | --- | --- |
-| `/api/auth` customer paths, `/api/tailors`, `/api/user`, `/api/measurements`, `/api/ratings`, customer bookings | `stitchbook-customer` |
+| `/uploads`, shop photo uploads, ironing photo uploads | `stitchbook-core` |
+| `/api/messages`, `/api/auth` customer paths, `/api/tailors`, `/api/user`, `/api/measurements`, `/api/ratings`, customer bookings | `stitchbook-customer` |
 | `PUT /api/bookings/:id/measurements`, `PUT /api/ratings/:id/reply` | `stitchbook-tailor` |
 | `/api/auth/login/tailor`, `/api/auth/register/tailor`, `/api/tailor`, `/api/slots/block`, `PUT /api/tailors/:id`, `/api/analytics`, shop booking updates | `stitchbook-tailor` |
 | `/api/admin` | `stitchbook-admin` |
